@@ -18,7 +18,7 @@ import spock.lang.Specification
 class MultiEndpointIT extends Specification {
 
     @Shared
-    GenericContainer  bonitaContainer = new GenericContainer<>("bonita:7.11.4")
+    GenericContainer  bonitaContainer = new GenericContainer<>("bonita:${System.getProperty('bonita.version','7.11.4')}")
                                                 .withExposedPorts(8080)
                                                 .waitingFor(Wait.forHttp("/bonita"))
 
